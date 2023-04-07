@@ -1,0 +1,90 @@
+body {
+  border: 2px solid black;
+  padding: 200px;
+  margin: 100px 400px;
+  font-family: "Andika", cursive;
+}
+form {
+  position: relative;
+  top: -130px;
+  right: -100px;
+}
+h1,
+h4,
+h5 {
+  position: relative;
+  top: -150px;
+  right: 130px;
+}
+a {
+  font-size: medium;
+  position: relative;
+  color: #007bff;
+  top: -8px;
+  text-decoration: none;
+}
+a:hover {
+  color: #1c4b7d;
+  text-decoration: underline;
+}
+.Precipitation {
+  position: relative;
+  top: -240px;
+  right: -200px;
+}
+.btn {
+  position: relative;
+  right: -230px;
+  top: -35px;
+}
+.row {
+  margin: -80px -110px;
+}
+.col-2 {
+  font-size: 24px;
+  position: relative;
+  top: -100px;
+  right: -15px;
+}
+.col-3 {
+  font-size: 24px;
+  position: relative;
+  top: -100px;
+  right: -30px;
+}
+
+.col-1 {
+  font-size: 24px;
+  position: relative;
+  top: -100px;
+  right: -40px;
+}
+.row-cols-md-6 {
+  margin: -80px -120px;
+  position: relative;
+  top: 190px;
+  right: -20px;
+}
+.rainy {
+  right: -48px;
+}
+.snow {
+  right: -65px;
+}
+.sun-cloud {
+  right: -68px;
+}
+.wen {
+  right: -5px;
+}
+.thr {
+  right: -25px;
+}
+
+.emoji {
+  border: 0.5px solid rgb(28, 78, 241);
+  padding: 15px 19px;
+  border-radius: 100px;
+  position: relative;
+  font-size: 30px;
+}
