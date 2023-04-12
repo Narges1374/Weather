@@ -1,7 +1,7 @@
 body {
   border: 2px solid black;
   padding: 200px;
-  margin: 100px 400px;
+  margin: 80px 400px;
   font-family: "Andika", cursive;
 }
 form {
@@ -87,4 +87,13 @@ a:hover {
   border-radius: 100px;
   position: relative;
   font-size: 30px;
+}
+
+.github{
+top: 1px;
+}
+
+.footer{
+  position: relative;
+  top: 250px;
 }
