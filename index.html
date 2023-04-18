@@ -20,83 +20,39 @@
 
 <body>
   <div class="container">
-    <form id="search-form">
-      <input type="text" id="search-city" placeholder="Enter your city" />
-      <button type="submit" class="btn btn-primary">Search</button>
-      <button type="submit" id="current-location" class="btn btn-success">Current</button>
-    </form>
-    <h1></h1>
-    <h4>
-      🌞<span id="degree"></span> <a href="#" id="celsius-link">°C</a> |
-      <a href="#" id="fahrenheit-link">°F</a>
-    </h4>
-    <h5 id="day-hour"></h5>
-    <p class="Precipitation">
-      Precipitation: % <br />
-      Humidity(%):<span id="Humidity"> </span> <br />
-      Wind(km/h): <span id="Wind"></span> <br />
-    </p>
-    <div class="row">
-      <div class="col-2">
-        Mon
+    <div class="weather-app-wrapper">
+      <div class="weather-app">
+        <form id="search-form">
+          <input type="text" id="search-city" placeholder="Enter your city" />
+          <button type="submit" class="btn btn-primary">Search</button>
+          <button type="submit" id="current-location" class="btn btn-success">Current</button>
+        </form>
+        <div>
+          <h1></h1>
+
+          <h5 id="day-hour"></h5>
+
+        </div>
+        <div class="row">
+          <div class="col-6">
+            🌞<span id="degree"></span> <a href="#" id="celsius-link">°C</a> |
+            <a href="#" id="fahrenheit-link">°F</a>
+          </div>
+
+          <div class="col-6 Precipitation">
+            <ul>
+              <li>Precipitation: % </li>
+              <li>Humidity(%):<span id="Humidity"> </span></li>
+              <li>Wind(km/h): <span id="Wind"></span></li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div class="col-3">
-        Tur
-      </div>
-      <div class="col-2 wen">
-        Wen
-      </div>
-      <div class="col-2 thr">
-        Thr
-      </div>
-      <div class="col-1">
-        Fri
-      </div>
+      <footer>
+        <a href="https://github.com/Narges1374/Weather.git" target="_blank">Open-source code</a>
+        by Narges Timachi
+      </footer>
     </div>
-
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5">
-      <div class="col">
-        <p class="emoji">🌞</p>
-      </div>
-
-      <div class="col">
-        <p class="emoji">🌥️</p>
-      </div>
-      <div class="col">
-        <p class="emoji">🌧️</p>
-      </div>
-
-      <div class="col">
-        <p class="emoji">❄️</p>
-      </div>
-      <div class="col">
-        <p class="emoji">🌥️</p>
-      </div>
-    </div>
-
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-6">
-      <div class="col-2">
-        21°
-      </div>
-      <div class="col-3">
-        10°
-      </div>
-      <div class="col-2 rainy">
-        7°
-      </div>
-      <div class="col-2 snow">
-        1°
-      </div>
-      <div class="col-1 sun-cloud">
-        10°
-      </div>
-    </div>
-  </div>
-  <div>
-    <p class="footer">
-      <a href="https://github.com/Narges1374/Weather.git" class="github">open-source code</a>
-      by Narges Timachi
-    </p>
   </div>
   <script src="src/index.js"></script>
 </body>

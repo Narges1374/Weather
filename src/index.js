@@ -44,7 +44,7 @@ let days = [
   "Wednesday",
   "Thursday",
   "Friday",
-  "Saturday",
+  "Saturday"
 ];
 let currentDay = days[now.getDay()];
 let currentHours = now.getHours();
@@ -56,4 +56,5 @@ if (currentMinutes < 10) {
   currentMinutes = `0${currentMinutes}`;
 }
 h5.innerHTML = `${currentDay}, ${currentHours}:${currentMinutes}`;
+
 searchCity("Tehran");
