@@ -1,5 +1,8 @@
+
 function showTemp(response) {
   document.querySelector("h1").innerHTML = response.data.name;
+  document.querySelector("#day-hour").innerHTML=formatdate(response.data.dt * 1000)
+  document.querySelector("#description").innerHTML = response.data.weather[0].description;
   document.querySelector("#degree").innerHTML = Math.round(
     response.data.main.temp
   );
@@ -35,26 +38,30 @@ function getCurrentLocation(event) {
 let currentLocationButton = document.querySelector("#current-location");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
-let now = new Date();
-let h5 = document.querySelector("h5");
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday"
-];
-let currentDay = days[now.getDay()];
-let currentHours = now.getHours();
-if (currentHours < 10) {
-  currentHours = `0${currentHours}`;
+
+function formatdate(timestamp) {
+  let date = new Date(timestamp);
+
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let currentDay = days[date.getDay()];
+  let currentHours = date.getHours();
+  if (currentHours < 10) {
+    currentHours = `0${currentHours}`;
+  }
+  let currentMinutes = date.getMinutes();
+  if (currentMinutes < 10) {
+    currentMinutes = `0${currentMinutes}`;
+  }
+  return `${currentDay} ${currentHours}:${currentMinutes}`;
 }
-let currentMinutes = now.getMinutes();
-if (currentMinutes < 10) {
-  currentMinutes = `0${currentMinutes}`;
-}
-h5.innerHTML = `${currentDay}, ${currentHours}:${currentMinutes}`;
+
 
 searchCity("Tehran");

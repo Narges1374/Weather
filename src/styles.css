@@ -2,7 +2,7 @@ body {
   font-family: "Andika", cursive;
 }
 form {
-text-align: right;
+  text-align: right;
 }
 h1,
 h4,
@@ -20,17 +20,20 @@ li {
 
 a {
   font-size: medium;
-  color: #1916bf;
+  color: #080739;
   text-decoration: none;
 }
 
-footer{
-text-align:center ;
+footer {
+  text-align: center;
 }
 
-.col-6 a{
+.col-6 a {
   font-size: 15px;
-  
+}
+
+strong {
+  font-size: 45px;
 }
 
 a:hover {
@@ -48,14 +51,8 @@ a:hover {
   border-radius: 5px;
 }
 
-strong{
-  font-size: 45px;
-  
-}
-
 .Precipitation {
-text-align: center;
-
+  text-align: center;
 }
 
 .days {
@@ -65,27 +62,24 @@ text-align: center;
   font-size: 18px;
   padding: 20px;
 }
+
+li::first-letter {
+  text-transform: capitalize;
+}
+
 .btn {
-  
 }
 .row {
-  
 }
 .col-2 {
-  
 }
 .col-3 {
-  
 }
 
 .col-1 {
- 
 }
 .row-cols-md-6 {
- 
 }
-
-
 
 .emoji {
   padding: 15px 19px;

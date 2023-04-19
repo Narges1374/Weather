@@ -29,14 +29,19 @@
         </form>
         <div>
           <h1></h1>
-
-          <h5 id="day-hour"></h5>
-
+          <ul>
+            <li>
+             Last Updated: <span id="day-hour"></span>
+            </li>
+            <li id="description"></li>
+          </ul>
         </div>
         <div class="row">
           <div class="col-6">
-            <strong>🌞<span id="degree"></span></strong> <a href="#" id="celsius-link">°C</a> |
-            <a href="#" id="fahrenheit-link">°F</a>
+            <div class="d-flex">
+              <strong>🌞<span id="degree"></span></strong> <a href="#" id="celsius-link">°C</a> |
+              <a href="#" id="fahrenheit-link">°F</a>
+            </div>
           </div>
 
           <div class="col-6 Precipitation">
@@ -69,14 +74,14 @@
           <div class="col-3 emoji">
             🌞
           </div>
-        
+
           <div class="col emoji">
             🌥️
           </div>
           <div class="col emoji">
             🌧️
           </div>
-        
+
           <div class="col emoji">
             ❄️
           </div>
