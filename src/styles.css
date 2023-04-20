@@ -67,6 +67,15 @@ li::first-letter {
   text-transform: capitalize;
 }
 
+.degree {
+  font-size: 40px;
+  font-weight: 800;
+}
+
+.deg {
+  margin-top: 15px;
+}
+
 .btn {
 }
 .row {
