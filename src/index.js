@@ -22,30 +22,32 @@ function formatdate(timestamp) {
 }
 
 function showTemp(response) {
-  document.querySelector("h1").innerHTML = response.data.name;
+  document.querySelector("h1").innerHTML = response.data.city;
   document.querySelector("#day-hour").innerHTML = formatdate(
-    response.data.dt * 1000
+    response.data.time * 1000
   );
   document.querySelector("#description").innerHTML =
-    response.data.weather[0].description;
+    response.data.condition.description;
   document.querySelector("#degree").innerHTML = Math.round(
-    response.data.main.temp
+    response.data.temperature.current
   );
-  document.querySelector("#Humidity").innerHTML = response.data.main.humidity;
+  document.querySelector("#Humidity").innerHTML =
+    response.data.temperature.humidity;
   document.querySelector("#Wind").innerHTML = Math.round(
     response.data.wind.speed
   );
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
     "src",
-    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
-  iconElement.setAttribute("alt", response.data.weather[0].description);
+  iconElement.setAttribute("alt", response.data.condition.description);
+  console.log(response)
 }
 
 function searchCity(city) {
-  let apiKey = "00fb1ee77d11996fd541ba08aebf893b";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiKey = "5205d0cd1111be04odfa3bb3834ad0t0";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemp);
 }
 
@@ -57,8 +59,8 @@ function showCity(event) {
 document.querySelector("#search-form").addEventListener("submit", showCity);
 
 function searchLocation(position) {
-  let apiKey = "00fb1ee77d11996fd541ba08aebf893b";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&&appid=${apiKey}&units=metric`;
+  let apiKey = "5205d0cd1111be04odfa3bb3834ad0t0";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${position.coords.longitude}&lat=${position.coords.latitude}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemp);
 }
 
