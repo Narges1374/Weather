@@ -27,10 +27,9 @@ function showTemp(response) {
     response.data.time * 1000
   );
   document.querySelector("#description").innerHTML =
-    response.data.condition.description;
-  document.querySelector("#degree").innerHTML = Math.round(
-    response.data.temperature.current
-  );
+  response.data.condition.description;
+  celesiusTemp = response.data.temperature.current;
+  document.querySelector("#degree").innerHTML = Math.round(celesiusTemp);
   document.querySelector("#Humidity").innerHTML =
     response.data.temperature.humidity;
   document.querySelector("#Wind").innerHTML = Math.round(
@@ -42,7 +41,6 @@ function showTemp(response) {
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
   iconElement.setAttribute("alt", response.data.condition.description);
-  console.log(response)
 }
 
 function searchCity(city) {
@@ -70,5 +68,33 @@ function getCurrentLocation(event) {
 }
 let currentLocationButton = document.querySelector("#current-location");
 currentLocationButton.addEventListener("click", getCurrentLocation);
+
+
+function displaycelsius(event){
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#degree");
+  temperatureElement.innerHTML = Math.round(celesiusTemp)
+}
+
+function displayFahrenheit(event){
+  event.preventDefault()
+  let temperatureElement = document.querySelector("#degree");
+  celsiusLink.classList.remove("active")
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemp = (celesiusTemp * 9) / 5 + 32; 
+  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
+}
+
+
+let celesiusTemp=null
+
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displaycelsius);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheit)
 
 searchCity("Tehran");

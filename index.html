@@ -23,7 +23,7 @@
     <div class="weather-app-wrapper">
       <div class="weather-app">
         <form id="search-form">
-          <input type="text" id="search-city" placeholder="Enter your city" />
+          <input type="text" id="search-city" autocomplete="off" placeholder="Type a city..." />
           <button type="submit" class="btn btn-primary">Search</button>
           <button type="submit" id="current-location" class="btn btn-success">Current</button>
         </form>
@@ -38,19 +38,18 @@
         </div>
         <div class="row">
           <div class="col-6">
-            <div class="d-flex">
+            <div class="d-flex weather-temperature">
               <img src="" alt="" id="icon"/>
                 <div class="deg d-flex">
                 <span id="degree" class="degree"></span>
-                <a href="#" id="celsius-link">°C</a> |
+                <a href="#" id="celsius-link" class="active">°C</a> |
                 <a href="#" id="fahrenheit-link">°F</a>
                 </div>
             </div>
           </div>
 
-          <div class="col-6 Precipitation">
+          <div class="col-6 humidity-wind">
             <ul>
-              <li>Precipitation: % </li>
               <li>Humidity(%):<span id="Humidity"> </span></li>
               <li>Wind(km/h): <span id="Wind"></span></li>
             </ul>
