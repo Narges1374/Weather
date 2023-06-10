@@ -86,3 +86,21 @@ li:first-letter {
   margin-top: 15px;
   text-align: center
 }
+
+.forecast{
+  margin-top: 20px;
+  text-align: center;
+  color: black;
+}
+
+.forecast-date{
+  font-size: 16px;
+  opacity: 0.5;
+}
+
+.forecast-temperature{
+  font-size: 13px;
+}
+.min-temp{
+opacity: 0.5;
+}
