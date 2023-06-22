@@ -21,13 +21,48 @@ function formatdate(timestamp) {
   return `${currentDay} ${currentHours}:${currentMinutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#weather-forecast");
+
+  let days = ["Thu", "Fri", "Sat", "Sun"];
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-2">
+        <div class="forecast-date">${day}</div>
+        <img
+          src="http://http://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-night.png"
+          alt=""
+          width="42"
+        />
+
+        <div class="forecast-temperature">
+          <span class="max-temp">18</span>
+          <span class="min-temp">12</span>
+        </div>
+      </div>
+    `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let apiKey = "5205d0cd1111be04odfa3bb3834ad0t0";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function showTemp(response) {
   document.querySelector("h1").innerHTML = response.data.city;
   document.querySelector("#day-hour").innerHTML = formatdate(
     response.data.time * 1000
   );
   document.querySelector("#description").innerHTML =
-  response.data.condition.description;
+    response.data.condition.description;
   celesiusTemp = response.data.temperature.current;
   document.querySelector("#degree").innerHTML = Math.round(celesiusTemp);
   document.querySelector("#Humidity").innerHTML =
@@ -41,6 +76,8 @@ function showTemp(response) {
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
   iconElement.setAttribute("alt", response.data.condition.description);
+
+  getForecast(response.data.coordinates);
 }
 
 function searchCity(city) {
@@ -69,32 +106,29 @@ function getCurrentLocation(event) {
 let currentLocationButton = document.querySelector("#current-location");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
-
-function displaycelsius(event){
+function displaycelsius(event) {
   event.preventDefault();
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
   let temperatureElement = document.querySelector("#degree");
-  temperatureElement.innerHTML = Math.round(celesiusTemp)
+  temperatureElement.innerHTML = Math.round(celesiusTemp);
 }
 
-function displayFahrenheit(event){
-  event.preventDefault()
+function displayFahrenheit(event) {
+  event.preventDefault();
   let temperatureElement = document.querySelector("#degree");
-  celsiusLink.classList.remove("active")
+  celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
-  let fahrenheitTemp = (celesiusTemp * 9) / 5 + 32; 
+  let fahrenheitTemp = (celesiusTemp * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenheitTemp);
 }
 
-
-let celesiusTemp=null
-
+let celesiusTemp = null;
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displaycelsius);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheit)
+fahrenheitLink.addEventListener("click", displayFahrenheit);
 
 searchCity("Tehran");
